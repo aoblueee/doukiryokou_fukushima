@@ -3,152 +3,170 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#173d32" />
-  <title>福島 同期10人旅｜2026.09.05-06</title>
-  <link rel="preconnect" href="https://unpkg.com">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIINfQ3ynh7aNT9nV7MZkKkDkhhvqkP1i1E=" crossorigin=""/>
+  <meta name="theme-color" content="#174c3d" />
+  <title>福島 同期10人旅｜2026.09.05–06</title>
+  <link rel="preconnect" href="https://unpkg.com" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
   <style>
     :root{
-      --bg:#f7f7f4;--card:#fff;--ink:#17211d;--muted:#65706a;--line:#d9dedb;
-      --green:#173d32;--green-soft:#eaf1ed;--peach:#e88e70;--peach-soft:#fff0e8;
-      --blue:#eaf4f7;--blue-ink:#2f6670;--amber:#fff6df;--amber-ink:#765d1e;
+      --bg:#f7f7f4;--card:#fff;--ink:#18221f;--muted:#69716e;--green:#174c3d;
+      --green-soft:#e9f1ed;--line:#e4e7e4;--peach:#fff0e8;--peach-ink:#a55334;
+      --blue:#e8f3f5;--blue-ink:#336a73;--warn:#fff5dd;--warn-ink:#795a12;
+      --radius:18px;--shadow:0 6px 18px rgba(23,45,37,.05)
     }
     *{box-sizing:border-box} html{scroll-behavior:smooth}
-    body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
-    a{color:inherit}.wrap{width:min(920px,calc(100% - 28px));margin:auto}
-    header{padding:34px 0 22px;background:#fff;border-bottom:1px solid var(--line)}
-    .kicker{font-size:12px;font-weight:800;letter-spacing:.12em;color:var(--green)}
-    h1{font-size:clamp(30px,7vw,52px);line-height:1.08;margin:8px 0 8px;letter-spacing:-.03em}
-    .lead{margin:0;color:var(--muted);font-size:14px}
-    .summary{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px}
-    .summary div{background:var(--green-soft);border-radius:12px;padding:12px}
-    .summary b{display:block;font-size:16px}.summary span{font-size:11px;color:var(--muted)}
-    nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);overflow:auto;white-space:nowrap;padding:10px 14px}
-    nav a{text-decoration:none;font-size:12px;font-weight:800;margin-right:16px;color:#33423c}
-    section{padding:34px 0}.section-title{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:14px}
-    .section-title h2{margin:0;font-size:24px;letter-spacing:-.02em}.section-title p{margin:0;color:var(--muted);font-size:12px}
-    .day{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-bottom:18px}
-    .dayhead{padding:14px 16px;background:#f1f4f2;border-bottom:1px solid var(--line)}
-    .dayhead strong{font-size:18px}.dayhead span{display:block;color:var(--muted);font-size:12px;margin-top:2px}
-    .event{display:grid;grid-template-columns:64px 1fr;gap:12px;padding:15px 16px;border-bottom:1px solid #edf0ee}
-    .event:last-child{border-bottom:0}.time{font-weight:900;color:var(--green);font-variant-numeric:tabular-nums}
-    .event h3{margin:0 0 3px;font-size:15px}.event p{margin:0;color:var(--muted);font-size:12px}
-    .tag{display:inline-block;margin-top:7px;padding:3px 7px;border-radius:999px;font-size:10px;font-weight:800}
-    .booked{background:var(--peach-soft);color:#a75238}.fixed{background:var(--green-soft);color:var(--green)}.candidate{background:var(--amber);color:var(--amber-ink)}
-    .important{background:#fff;border:2px solid var(--green);border-radius:14px;padding:16px;margin-bottom:14px}
-    .important b{display:block;font-size:14px;margin-bottom:4px}.important p{margin:0;color:var(--muted);font-size:12px}
-    .map-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.map-card{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
-    .map-card h3{margin:0;padding:14px 14px 8px;font-size:15px}.map-card p{margin:0;padding:0 14px 12px;color:var(--muted);font-size:11px}
-    .map{height:330px}.maplinks{padding:12px 14px;display:flex;flex-wrap:wrap;gap:7px;border-top:1px solid var(--line)}
-    .maplinks a,.btn{display:inline-block;text-decoration:none;border:1px solid var(--line);background:#fff;padding:7px 9px;border-radius:9px;font-size:11px;font-weight:700}
-    .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px}
-    .card h3{margin:0 0 6px;font-size:15px}.card p{margin:0;color:var(--muted);font-size:12px}.card .meta{margin-top:10px;font-size:11px;font-weight:700;color:var(--green)}
-    .gift{background:var(--green);color:#fff;border-radius:16px;padding:18px}.gift h3{margin:0 0 10px;font-size:20px}.giftgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-    .giftgrid div{background:rgba(255,255,255,.09);border-radius:10px;padding:11px}.giftgrid b{display:block;font-size:18px}.giftgrid span{font-size:10px;opacity:.75}
-    .checklist{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px}.check{padding:10px 0;border-bottom:1px solid #edf0ee;font-size:13px}.check:last-child{border-bottom:0}
-    footer{padding:24px 0 50px;color:var(--muted);font-size:11px;text-align:center}
-    @media(max-width:720px){.summary{grid-template-columns:1fr 1fr 1fr}.map-grid,.cards{grid-template-columns:1fr}.map{height:280px}.section-title{display:block}.section-title p{margin-top:4px}.event{grid-template-columns:58px 1fr;padding:14px}.giftgrid{grid-template-columns:1fr 1fr 1fr}}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic","Noto Sans JP",sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}.wrap{width:min(920px,calc(100% - 28px));margin:auto}
+    header{background:var(--green);color:#fff;padding:34px 0 28px}
+    .eyebrow{font-size:11px;font-weight:800;letter-spacing:.14em;opacity:.72}
+    h1{font-size:30px;line-height:1.2;margin:8px 0 8px}.lead{margin:0;color:rgba(255,255,255,.78);font-size:14px}
+    .quick{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:22px}
+    .quick div{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:11px 12px}
+    .quick b{display:block;font-size:15px}.quick span{font-size:10px;opacity:.68}
+    nav{position:sticky;top:0;z-index:900;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);overflow:auto;white-space:nowrap;padding:0 14px}
+    nav a{display:inline-block;padding:13px 10px;font-size:12px;font-weight:800;color:#35423e}
+    section{padding:34px 0;scroll-margin-top:50px}.section-title{font-size:22px;margin:0 0 6px}.section-sub{font-size:12px;color:var(--muted);margin:0 0 18px}
+    .day{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);margin-bottom:18px}
+    .day-head{padding:16px 18px;border-bottom:1px solid var(--line);background:#fbfcfb}.day-head b{font-size:18px}.day-head span{display:block;color:var(--muted);font-size:12px;margin-top:3px}
+    .timeline{padding:6px 18px}.event{display:grid;grid-template-columns:64px 1fr;gap:14px;padding:14px 0;border-bottom:1px solid #edf0ed}.event:last-child{border-bottom:0}
+    .time{font-size:14px;font-weight:900;color:var(--green);font-variant-numeric:tabular-nums}.event h3{font-size:15px;margin:0 0 3px}.event p{font-size:12px;color:var(--muted);margin:0}
+    .tag{display:inline-block;border-radius:999px;padding:3px 7px;margin-top:7px;font-size:9px;font-weight:900;letter-spacing:.06em;background:#edf0ee;color:#53605b}.tag.booked{background:var(--peach);color:var(--peach-ink)}.tag.fixed{background:var(--green-soft);color:var(--green)}.tag.todo{background:var(--warn);color:var(--warn-ink)}
+    .important{background:#fff;border:2px solid var(--green);border-radius:16px;padding:16px;margin-bottom:16px}.important .label{color:var(--green);font-size:10px;font-weight:900;letter-spacing:.12em}.important strong{display:block;font-size:22px;margin:4px 0}.important p{font-size:12px;color:var(--muted);margin:0}
+    .maps{display:grid;grid-template-columns:1fr 1fr;gap:14px}.map-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}.map-card h3{font-size:16px;margin:0;padding:15px 16px 3px}.map-card .desc{padding:0 16px 12px;color:var(--muted);font-size:11px}.map{width:100%;height:330px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .map-note{padding:10px 14px;font-size:10px;color:var(--muted);background:#fafbfa}.map-links{display:flex;gap:8px;padding:12px 14px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;min-height:36px;padding:8px 11px;border:1px solid var(--line);border-radius:10px;font-size:11px;font-weight:800;background:#fff}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow)}.card h3{font-size:15px;margin:0 0 5px}.card p{font-size:12px;color:var(--muted);margin:0}.card .meta{margin-top:10px;font-size:11px;font-weight:800;color:#45514d}
+    .food-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.food{background:#fff;border:1px solid var(--line);border-radius:15px;padding:15px}.food .daylabel{font-size:9px;font-weight:900;color:var(--green);letter-spacing:.1em}.food h3{font-size:14px;margin:5px 0}.food p{font-size:11px;color:var(--muted);margin:0}.food .status{display:inline-block;margin-top:10px;font-size:9px;font-weight:900;background:var(--warn);color:var(--warn-ink);padding:4px 7px;border-radius:999px}
+    .gift{background:#202d29;color:#fff;border-radius:18px;padding:20px}.gift h3{font-size:20px;margin:0 0 10px}.gift-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.gift-grid div{border:1px solid rgba(255,255,255,.13);border-radius:12px;padding:12px}.gift-grid b{display:block;font-size:17px}.gift-grid span{font-size:10px;color:rgba(255,255,255,.62)}
+    .checklist{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px}.check{padding:10px 0;border-bottom:1px solid var(--line);font-size:12px}.check:last-child{border:0}.check b{display:block;margin-bottom:2px}.check span{color:var(--muted)}
+    footer{text-align:center;color:var(--muted);font-size:10px;padding:24px 0 50px}
+    .leaflet-popup-content{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif;font-size:12px}.leaflet-control-attribution{font-size:8px!important}
+    @media(max-width:720px){
+      .wrap{width:min(100% - 20px,680px)} header{padding:28px 0 22px}h1{font-size:26px}.quick{grid-template-columns:1fr}.quick div{padding:9px 11px}.maps,.grid,.food-grid{grid-template-columns:1fr}.map{height:300px}.event{grid-template-columns:58px 1fr;gap:10px}.timeline{padding:5px 14px}.day-head{padding:14px}.gift-grid{grid-template-columns:1fr 1fr}section{padding:28px 0}
+    }
   </style>
 </head>
 <body>
-<header><div class="wrap">
-  <div class="kicker">FUKUSHIMA ROAD TRIP 2026</div>
-  <h1>同期10人旅｜猪苗代・福島・那須</h1>
-  <p class="lead">迷った時にすぐ確認できる、実用優先のしおり。時刻・予約・次の目的地を最優先で表示。</p>
-  <div class="summary">
-    <div><b>9/5–9/6</b><span>1泊2日</span></div>
-    <div><b>10人</b><span>全員東京発着</span></div>
-    <div><b>20:00</b><span>森下で車返却</span></div>
+<header>
+  <div class="wrap">
+    <div class="eyebrow">FUKUSHIMA ROAD TRIP · 10 PEOPLE</div>
+    <h1>猪苗代 同期10人旅</h1>
+    <p class="lead">2026.09.05 Sat – 09.06 Sun</p>
+    <div class="quick">
+      <div><b>08:00 集合</b><span>森下駅 A5出口</span></div>
+      <div><b>15:00 サウナ</b><span>Roots猪苗代 Lake Area</span></div>
+      <div><b>20:00 返却</b><span>9/6 森下・絶対期限</span></div>
+    </div>
   </div>
-</div></header>
-<nav><a href="#schedule">旅程</a><a href="#maps">地図</a><a href="#booked">予約済み</a><a href="#food">ご飯候補</a><a href="#gift">プレゼント交換</a><a href="#todo">確認事項</a></nav>
+</header>
+<nav>
+  <a href="#schedule">旅程</a><a href="#maps">地図</a><a href="#booked">予約済み</a><a href="#food">ご飯候補</a><a href="#gift">プレゼント交換</a><a href="#todo">確認事項</a>
+</nav>
 <main>
 <section id="schedule"><div class="wrap">
-  <div class="section-title"><h2>タイムテーブル</h2><p>未確定の食事は候補欄へ分離</p></div>
-  <div class="important"><b>最重要</b><p>9/5 15:00 サウナ、9/6 11:00 桃狩り、9/6 20:00 森下レンタカー返却。ここだけは崩さない。</p></div>
+  <h2 class="section-title">旅程</h2><p class="section-sub">まず「何時に・どこへ」を最優先で読める形にしています。</p>
+  <div class="important"><div class="label">MEETING POINT</div><strong>9/5 08:00｜森下駅 A5出口</strong><p>10人全員ここで集合。荷物を積み次第、猪苗代へ向けて出発。</p></div>
   <div class="day">
-    <div class="dayhead"><strong>9/5（土）</strong><span>猪苗代湖・サウナ・BBQ</span></div>
-    <div class="event"><div class="time">09:00</div><div><h3>森下 出発</h3><p>10人全員で東京から猪苗代へ。</p><span class="tag fixed">FIX</span></div></div>
-    <div class="event"><div class="time">13:00</div><div><h3>河京ラーメン館 猪苗代店</h3><p>喜多方ラーメン＆ビュッフェ。10名以上で予約可。</p><span class="tag fixed">LUNCH</span></div></div>
-    <div class="event"><div class="time">14:10</div><div><h3>猪苗代湖へ</h3><p>湖畔で散策・集合写真・サウナ準備。</p></div></div>
-    <div class="event"><div class="time">15:00</div><div><h3>Roots猪苗代 Lake Area｜サウナ</h3><p>120分想定。水着・サンダル・タオル・飲み物を忘れずに。</p><span class="tag fixed">MAIN</span></div></div>
-    <div class="event"><div class="time">17:00</div><div><h3>BBQ買い出し</h3><p>肉・酒・野菜・朝食・氷などをまとめて購入。</p></div></div>
-    <div class="event"><div class="time">18:00</div><div><h3>ログハウス着 → BBQ・飲み</h3><p>Roots Lake Areaから車約15分。夜は予定を詰めずにゆっくり。</p><span class="tag booked">BOOKED</span></div></div>
+    <div class="day-head"><b>DAY 1｜9/5（土）</b><span>東京 → 猪苗代湖 → サウナ → BBQ</span></div>
+    <div class="timeline">
+      <div class="event"><div class="time">08:00</div><div><h3>森下駅 A5出口 集合</h3><p>10人集合・荷物積み込み。</p><span class="tag fixed">FIX</span></div></div>
+      <div class="event"><div class="time">08:15</div><div><h3>森下 出発</h3><p>途中SA休憩を挟みながら猪苗代へ。</p></div></div>
+      <div class="event"><div class="time">12:30</div><div><h3>河京ラーメン館 猪苗代店</h3><p>喜多方ラーメン＆ビュッフェ。10人予約候補。</p><span class="tag todo">予約確認</span></div></div>
+      <div class="event"><div class="time">14:10</div><div><h3>猪苗代湖</h3><p>湖畔で少し休憩・集合写真。サウナ準備。</p></div></div>
+      <div class="event"><div class="time">15:00</div><div><h3>Roots猪苗代 湖畔サウナ</h3><p>120分想定。水着・タオル・サンダルなど忘れずに。</p><span class="tag fixed">MAIN</span></div></div>
+      <div class="event"><div class="time">17:00</div><div><h3>BBQ買い出し</h3><p>肉・酒・野菜・朝食・氷など。</p></div></div>
+      <div class="event"><div class="time">18:00</div><div><h3>ログハウスへ</h3><p>チェックイン後、そのままBBQ＆飲み。</p><span class="tag booked">BOOKED</span></div></div>
+    </div>
   </div>
   <div class="day">
-    <div class="dayhead"><strong>9/6（日）</strong><span>桃狩り・プレゼント交換・東京へ</span></div>
-    <div class="event"><div class="time">10:00</div><div><h3>チェックアウト</h3><p>朝食・片付け・荷造りを済ませて出発。</p><span class="tag fixed">DEADLINE</span></div></div>
-    <div class="event"><div class="time">11:00</div><div><h3>まるせい果樹園｜桃狩り</h3><p>予約枠 11:00–12:00。タオル・帽子・虫よけ推奨。</p><span class="tag booked">BOOKED</span></div></div>
-    <div class="event"><div class="time">12:10</div><div><h3>昼ごはん</h3><p>店は未確定。下の「ご飯候補」から決定。</p><span class="tag candidate">未確定</span></div></div>
-    <div class="event"><div class="time">13:00</div><div><h3>那須へ出発</h3><p>東京方面へ南下。</p></div></div>
-    <div class="event"><div class="time">14:30</div><div><h3>那須ガーデンアウトレット</h3><p>恒例のプレゼント交換イベント。</p></div></div>
-    <div class="event"><div class="time">14:30</div><div><h3>プレゼント探し</h3><p>制限時間 1時間30分。</p></div></div>
-    <div class="event"><div class="time">16:00</div><div><h3>プレゼント交換</h3><p>1時間確保。開封・紹介までゆっくり。</p></div></div>
-    <div class="event"><div class="time">17:00</div><div><h3>那須 出発</h3><p>当日の渋滞次第では16:30〜16:45に前倒し。</p></div></div>
-    <div class="event"><div class="time">19:15</div><div><h3>森下周辺 到着目標</h3><p>荷物降ろし・給油。</p></div></div>
-    <div class="event"><div class="time">20:00</div><div><h3>レンタカー返却</h3><p>絶対期限。</p><span class="tag fixed">DEADLINE</span></div></div>
+    <div class="day-head"><b>DAY 2｜9/6（日）</b><span>桃狩り → ランチ → 那須 → 東京</span></div>
+    <div class="timeline">
+      <div class="event"><div class="time">10:00</div><div><h3>ログハウス チェックアウト</h3><p>朝食・片付け・荷造りを済ませて出発。</p><span class="tag fixed">FIX</span></div></div>
+      <div class="event"><div class="time">11:00</div><div><h3>まるせい果樹園 桃狩り</h3><p>11:00〜12:00の予約枠。</p><span class="tag booked">BOOKED</span></div></div>
+      <div class="event"><div class="time">12:15</div><div><h3>福島エリアでランチ</h3><p>10人で入りやすい店を候補から決定。</p><span class="tag todo">未確定</span></div></div>
+      <div class="event"><div class="time">13:00</div><div><h3>那須へ出発</h3><p>東京方向へ南下。</p></div></div>
+      <div class="event"><div class="time">14:30</div><div><h3>那須ガーデンアウトレット</h3><p>恒例のプレゼント交換イベント。</p></div></div>
+      <div class="event"><div class="time">14:30</div><div><h3>プレゼント探し</h3><p>制限時間 1時間30分。</p><span class="tag fixed">90 MIN</span></div></div>
+      <div class="event"><div class="time">16:00</div><div><h3>プレゼント交換</h3><p>開封・紹介込みで1時間。</p><span class="tag fixed">60 MIN</span></div></div>
+      <div class="event"><div class="time">17:00</div><div><h3>那須 出発</h3><p>道路状況を見て、可能なら少し前倒し。</p></div></div>
+      <div class="event"><div class="time">20:00</div><div><h3>森下 レンタカー返却</h3><p>荷物降ろし・給油まで含めて厳守。</p><span class="tag fixed">DEADLINE</span></div></div>
+    </div>
   </div>
 </div></section>
 
 <section id="maps"><div class="wrap">
-  <div class="section-title"><h2>位置関係</h2><p>Day1とDay2を分けて、移動方向がすぐ分かるように表示</p></div>
-  <div class="map-grid">
-    <div class="map-card"><h3>Day 1｜猪苗代エリア</h3><p>河京 → 猪苗代湖・Roots。宿はRootsから車約15分。</p><div id="map1" class="map"></div><div class="maplinks">
-      <a target="_blank" href="https://www.google.com/maps/search/?api=1&query=%E6%B2%B3%E4%BA%AC%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%B3%E9%A4%A8+%E7%8C%AA%E8%8B%97%E4%BB%A3%E5%BA%97">河京をGoogle Mapsで開く</a>
-      <a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Roots%E7%8C%AA%E8%8B%97%E4%BB%A3+Lake+Area">Rootsを開く</a>
-      <a target="_blank" href="https://lakearea.roots.jp/%E3%83%AD%E3%82%B0%E3%83%8F%E3%82%A6%E3%82%B9/">ログハウス公式地図</a>
-    </div></div>
-    <div class="map-card"><h3>Day 2｜福島 → 那須 → 東京</h3><p>北の福島から南下。那須を経由して森下へ。</p><div id="map2" class="map"></div><div class="maplinks">
-      <a target="_blank" href="https://www.google.com/maps/search/?api=1&query=%E3%81%BE%E3%82%8B%E3%81%9B%E3%81%84%E6%9E%9C%E6%A8%B9%E5%9C%92">まるせいを開く</a>
-      <a target="_blank" href="https://www.google.com/maps/search/?api=1&query=%E9%82%A3%E9%A0%88%E3%82%AC%E3%83%BC%E3%83%87%E3%83%B3%E3%82%A2%E3%82%A6%E3%83%88%E3%83%AC%E3%83%83%E3%83%88">那須を開く</a>
-    </div></div>
+  <h2 class="section-title">地図</h2><p class="section-sub">スマホで拡大・縮小できます。ピンを押すと場所名が出ます。</p>
+  <div class="maps">
+    <div class="map-card">
+      <h3>DAY 1｜猪苗代エリア</h3><div class="desc">河京 → 猪苗代湖・Roots。近距離の位置関係を見る用。</div>
+      <div id="map1" class="map"></div>
+      <div class="map-note">※線は位置関係を示す目安で、実際の道路ルートではありません。</div>
+      <div class="map-links"><a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=河京ラーメン館+猪苗代店">河京をGoogle Mapsで開く</a><a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Roots猪苗代+Lake+Area">Rootsを開く</a></div>
+    </div>
+    <div class="map-card">
+      <h3>DAY 2｜福島 → 那須 → 東京</h3><div class="desc">桃狩り後は南下。那須でプレゼント交換して森下へ。</div>
+      <div id="map2" class="map"></div>
+      <div class="map-note">※広域なので縮尺は自動調整。線は実際の道路ルートではありません。</div>
+      <div class="map-links"><a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=まるせい果樹園">まるせいを開く</a><a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=那須ガーデンアウトレット">那須を開く</a></div>
+    </div>
   </div>
 </div></section>
 
 <section id="booked"><div class="wrap">
-  <div class="section-title"><h2>予約済み</h2><p>確定情報だけをまとめて確認</p></div>
-  <div class="cards">
-    <div class="card"><h3>🏡 Origin Log House</h3><p>最大12名・一棟貸切。チェックアウトは9/6 10:00まで。</p><div class="meta">予約済み</div></div>
-    <div class="card"><h3>🍑 まるせい果樹園</h3><p>9/6 11:00集合。体験枠は11:00–12:00。</p><div class="meta">予約済み</div></div>
+  <h2 class="section-title">予約済み</h2><p class="section-sub">確定情報だけをここに集約。</p>
+  <div class="grid">
+    <div class="card"><h3>🏡 Roots オリジンログハウス</h3><p>9/5宿泊。最大12名・一棟貸切。Lake Areaから車約15分。</p><div class="meta">CHECK OUT｜9/6 10:00</div></div>
+    <div class="card"><h3>🍑 まるせい果樹園</h3><p>9/6 11:00集合。体験枠11:00〜12:00。</p><div class="meta">持ち物｜タオル・帽子・虫よけ</div></div>
   </div>
 </div></section>
 
 <section id="food"><div class="wrap">
-  <div class="section-title"><h2>ご飯候補</h2><p>未確定の店はタイムラインから外してここで比較</p></div>
-  <div class="cards">
-    <div class="card"><h3>🥟 餃子酒家 照井</h3><p>福島名物の円盤餃子。まるせいから動きやすく、昼営業あり。10名予約は要確認。</p><div class="meta">第一候補</div></div>
-    <div class="card"><h3>🥟 満腹</h3><p>円盤餃子の老舗候補。福島市街側なので、那須への動線は照井より少し遠回り。</p><div class="meta">第二候補</div></div>
+  <h2 class="section-title">ご飯候補</h2><p class="section-sub">未確定の食事は旅程から切り離して管理。</p>
+  <div class="food-grid">
+    <div class="food"><div class="daylabel">DAY 1 LUNCH</div><h3>河京ラーメン館 猪苗代店</h3><p>喜多方ラーメン＋30種類以上のサイドメニューが楽しめるビュッフェ。10人予約可。</p><span class="status">予約確認中</span></div>
+    <div class="food"><div class="daylabel">DAY 2 LUNCH</div><h3>餃子酒家 照井</h3><p>福島名物の円盤餃子。桃狩り後の候補。</p><span class="status">候補</span></div>
+    <div class="food"><div class="daylabel">DAY 2 LUNCH</div><h3>その他・福島飯坂周辺</h3><p>10人予約可・駐車場あり・那須へ南下しやすい店を優先。</p><span class="status">候補追加予定</span></div>
   </div>
 </div></section>
 
 <section id="gift"><div class="wrap">
-  <div class="section-title"><h2>プレゼント交換</h2><p>那須ガーデンアウトレット</p></div>
-  <div class="gift"><h3>🎁 恒例イベント</h3><div class="giftgrid"><div><b>90分</b><span>プレゼント探し</span></div><div><b>60分</b><span>交換・開封</span></div><div><b>17:00</b><span>那須出発目安</span></div></div></div>
+  <h2 class="section-title">プレゼント交換</h2><p class="section-sub">那須ガーデンアウトレットで行う恒例イベント。</p>
+  <div class="gift"><h3>🎁 Gift Exchange</h3><div class="gift-grid"><div><b>90分</b><span>プレゼント探し</span></div><div><b>60分</b><span>交換・開封</span></div><div><b>10人</b><span>全員参加</span></div></div></div>
 </div></section>
 
 <section id="todo"><div class="wrap">
-  <div class="section-title"><h2>確認事項</h2><p>決まったら消していく</p></div>
+  <h2 class="section-title">確認事項</h2>
   <div class="checklist">
-    <div class="check">□ 河京ラーメン館を10名で予約</div>
-    <div class="check">□ サウナ予約内容・持ち物を全員に共有</div>
-    <div class="check">□ BBQ買い出し場所・肉の事前予約を決定</div>
-    <div class="check">□ 9/6昼ごはんを10名で予約</div>
-    <div class="check">□ プレゼント交換の予算・ルールを共有</div>
-    <div class="check">□ 9/6当日、那須出発前に東北道・首都高の渋滞を確認</div>
+    <div class="check"><b>河京ラーメン館</b><span>9/5・10名の予約を確認</span></div>
+    <div class="check"><b>Roots サウナ</b><span>15:00開始枠・10名分の予約内容を確認</span></div>
+    <div class="check"><b>9/6 ランチ</b><span>10名予約・駐車場・桃狩りからの動線で決定</span></div>
+    <div class="check"><b>レンタカー</b><span>9/6 20:00森下返却。帰路は当日の渋滞を見て前倒し判断。</span></div>
   </div>
 </div></section>
 </main>
-<footer><div class="wrap">FUKUSHIMA 2026｜同期10人旅</div></footer>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<footer>FUKUSHIMA 2026 · DOUKI ROAD TRIP</footer>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 <script>
-  const tiles='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-  const attr='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>';
-  const m1=L.map('map1',{scrollWheelZoom:false}); L.tileLayer(tiles,{attribution:attr}).addTo(m1);
-  const p1=[[37.535963,140.074604,'① 河京ラーメン館'],[37.489877,140.15514,'② Roots猪苗代 Lake Area']];
-  p1.forEach(p=>L.marker([p[0],p[1]]).addTo(m1).bindPopup(p[2])); L.polyline(p1.map(p=>[p[0],p[1]]),{weight:4,opacity:.7}).addTo(m1); m1.fitBounds(p1.map(p=>[p[0],p[1]]),{padding:[28,28]});
-  const m2=L.map('map2',{scrollWheelZoom:false}); L.tileLayer(tiles,{attribution:attr}).addTo(m2);
-  const p2=[[37.8217745,140.4315466,'① まるせい果樹園'],[36.9657775,139.9911679,'② 那須ガーデンアウトレット'],[35.6882,139.7983,'③ 森下']];
-  p2.forEach(p=>L.marker([p[0],p[1]]).addTo(m2).bindPopup(p[2])); L.polyline(p2.map(p=>[p[0],p[1]]),{weight:4,opacity:.7}).addTo(m2); m2.fitBounds(p2.map(p=>[p[0],p[1]]),{padding:[24,24]});
+  function makeMap(id, points, line=true){
+    const map=L.map(id,{scrollWheelZoom:false,zoomControl:true});
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap'}).addTo(map);
+    const latlngs=[];
+    points.forEach(p=>{
+      const ll=[p.lat,p.lng]; latlngs.push(ll);
+      L.marker(ll).addTo(map).bindPopup('<b>'+p.name+'</b><br>'+p.note);
+    });
+    if(line) L.polyline(latlngs,{color:'#174c3d',weight:3,opacity:.65,dashArray:'7 7'}).addTo(map);
+    map.fitBounds(L.latLngBounds(latlngs).pad(.18));
+    setTimeout(()=>map.invalidateSize(),250);
+  }
+  makeMap('map1',[
+    {name:'河京ラーメン館 猪苗代店',note:'DAY1 ランチ',lat:37.5488,lng:140.1090},
+    {name:'Roots猪苗代 Lake Area',note:'15:00 サウナ',lat:37.5095,lng:140.1390}
+  ]);
+  makeMap('map2',[
+    {name:'まるせい果樹園',note:'11:00 桃狩り',lat:37.8217745,lng:140.4315466},
+    {name:'那須ガーデンアウトレット',note:'プレゼント交換',lat:36.9657775,lng:139.9911679},
+    {name:'森下駅',note:'20:00 レンタカー返却',lat:35.6880451,lng:139.7982419}
+  ]);
 </script>
 </body>
 </html>
