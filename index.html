@@ -17,12 +17,9 @@
     *{box-sizing:border-box} html{scroll-behavior:smooth}
     body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic","Noto Sans JP",sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
     a{color:inherit;text-decoration:none}.wrap{width:min(920px,calc(100% - 28px));margin:auto}
-    header{background:var(--green);color:#fff;padding:34px 0 28px}
+    header{background:var(--green);color:#fff;padding:34px 0 30px}
     .eyebrow{font-size:11px;font-weight:800;letter-spacing:.14em;opacity:.72}
     h1{font-size:30px;line-height:1.2;margin:8px 0 8px}.lead{margin:0;color:rgba(255,255,255,.78);font-size:14px}
-    .quick{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:22px}
-    .quick div{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:11px 12px}
-    .quick b{display:block;font-size:15px}.quick span{font-size:10px;opacity:.68}
     nav{position:sticky;top:0;z-index:900;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);overflow:auto;white-space:nowrap;padding:0 14px}
     nav a{display:inline-block;padding:13px 10px;font-size:12px;font-weight:800;color:#35423e}
     section{padding:34px 0;scroll-margin-top:50px}.section-title{font-size:22px;margin:0 0 6px}.section-sub{font-size:12px;color:var(--muted);margin:0 0 18px}
@@ -41,7 +38,7 @@
     footer{text-align:center;color:var(--muted);font-size:10px;padding:24px 0 50px}
     .leaflet-popup-content{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif;font-size:12px}.leaflet-control-attribution{font-size:8px!important}
     @media(max-width:720px){
-      .wrap{width:min(100% - 20px,680px)} header{padding:28px 0 22px}h1{font-size:26px}.quick{grid-template-columns:1fr}.quick div{padding:9px 11px}.maps,.grid,.food-grid{grid-template-columns:1fr}.map{height:300px}.event{grid-template-columns:58px 1fr;gap:10px}.timeline{padding:5px 14px}.day-head{padding:14px}.gift-grid{grid-template-columns:1fr 1fr}section{padding:28px 0}
+      .wrap{width:min(100% - 20px,680px)} header{padding:28px 0 26px}h1{font-size:26px}.maps,.grid,.food-grid{grid-template-columns:1fr}.map{height:300px}.event{grid-template-columns:58px 1fr;gap:10px}.timeline{padding:5px 14px}.day-head{padding:14px}.gift-grid{grid-template-columns:1fr 1fr}section{padding:28px 0}
     }
   </style>
 </head>
@@ -51,11 +48,6 @@
     <div class="eyebrow">FUKUSHIMA ROAD TRIP · 10 PEOPLE</div>
     <h1>猪苗代 同期10人旅</h1>
     <p class="lead">2026.09.05 Sat – 09.06 Sun</p>
-    <div class="quick">
-      <div><b>08:00 集合</b><span>森下駅 A5出口</span></div>
-      <div><b>15:00 サウナ</b><span>Roots猪苗代 Lake Area</span></div>
-      <div><b>20:00 返却</b><span>9/6 森下・絶対期限</span></div>
-    </div>
   </div>
 </header>
 <nav>
@@ -72,7 +64,7 @@
       <div class="event"><div class="time">08:15</div><div><h3>森下 出発</h3><p>途中SA休憩を挟みながら猪苗代へ。</p></div></div>
       <div class="event"><div class="time">12:30</div><div><h3>河京ラーメン館 猪苗代店</h3><p>喜多方ラーメン＆ビュッフェ。10人予約候補。</p><span class="tag todo">予約確認</span></div></div>
       <div class="event"><div class="time">14:10</div><div><h3>猪苗代湖</h3><p>湖畔で少し休憩・集合写真。サウナ準備。</p></div></div>
-      <div class="event"><div class="time">15:00</div><div><h3>Roots猪苗代 湖畔サウナ</h3><p>120分想定。水着・タオル・サンダルなど忘れずに。</p><span class="tag fixed">MAIN</span></div></div>
+      <div class="event"><div class="time">15:00</div><div><h3>Roots猪苗代 湖畔サウナ</h3><p>パノラマサウナ＋バレルサウナを予約済み。手ぶらセット利用。</p><span class="tag booked">BOOKED</span></div></div>
       <div class="event"><div class="time">17:00</div><div><h3>BBQ買い出し</h3><p>肉・酒・野菜・朝食・氷など。</p></div></div>
       <div class="event"><div class="time">18:00</div><div><h3>ログハウスへ</h3><p>チェックイン後、そのままBBQ＆飲み。</p><span class="tag booked">BOOKED</span></div></div>
     </div>
@@ -114,6 +106,7 @@
 <section id="booked"><div class="wrap">
   <h2 class="section-title">予約済み</h2><p class="section-sub">確定情報だけをここに集約。</p>
   <div class="grid">
+    <div class="card"><h3>🔥 Roots猪苗代 湖畔サウナ</h3><p>9/5 15:00。パノラマサウナ＋バレルサウナを予約済み。手ぶらセット利用。</p><div class="meta">BOOKED｜15:00〜</div></div>
     <div class="card"><h3>🏡 Roots オリジンログハウス</h3><p>9/5宿泊。最大12名・一棟貸切。Lake Areaから車約15分。</p><div class="meta">CHECK OUT｜9/6 10:00</div></div>
     <div class="card"><h3>🍑 まるせい果樹園</h3><p>9/6 11:00集合。体験枠11:00〜12:00。</p><div class="meta">持ち物｜タオル・帽子・虫よけ</div></div>
   </div>
@@ -137,7 +130,6 @@
   <h2 class="section-title">確認事項</h2>
   <div class="checklist">
     <div class="check"><b>河京ラーメン館</b><span>9/5・10名の予約を確認</span></div>
-    <div class="check"><b>Roots サウナ</b><span>15:00開始枠・10名分の予約内容を確認</span></div>
     <div class="check"><b>9/6 ランチ</b><span>10名予約・駐車場・桃狩りからの動線で決定</span></div>
     <div class="check"><b>レンタカー</b><span>9/6 20:00森下返却。帰路は当日の渋滞を見て前倒し判断。</span></div>
   </div>
