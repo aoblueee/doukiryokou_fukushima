@@ -30,7 +30,7 @@
     .tag{display:inline-block;border-radius:999px;padding:3px 7px;margin-top:7px;font-size:9px;font-weight:900;letter-spacing:.06em;background:#edf0ee;color:#53605b}.tag.booked{background:var(--peach);color:var(--peach-ink)}.tag.fixed{background:var(--green-soft);color:var(--green)}.tag.todo{background:var(--warn);color:var(--warn-ink)}
     .important{background:#fff;border:2px solid var(--green);border-radius:16px;padding:16px;margin-bottom:16px}.important .label{color:var(--green);font-size:10px;font-weight:900;letter-spacing:.12em}.important strong{display:block;font-size:22px;margin:4px 0}.important p{font-size:12px;color:var(--muted);margin:0}
     .maps{display:grid;grid-template-columns:1fr 1fr;gap:14px}.map-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}.map-card h3{font-size:16px;margin:0;padding:15px 16px 3px}.map-card .desc{padding:0 16px 12px;color:var(--muted);font-size:11px}.map{width:100%;height:330px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-    .map-note{padding:10px 14px;font-size:10px;color:var(--muted);background:#fafbfa}.map-links{display:flex;gap:8px;padding:12px 14px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;min-height:36px;padding:8px 11px;border:1px solid var(--line);border-radius:10px;font-size:11px;font-weight:800;background:#fff}
+    .map-note{padding:10px 14px;font-size:10px;color:var(--muted);background:#fafbfa}.map-links{display:flex;gap:8px;padding:12px 14px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;min-height:36px;padding:8px 11px;border:1px solid var(--line);border-radius:10px;font-size:11px;font-weight:800;background:#fff}.event .btn,.card .btn{margin-top:10px}
     .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow)}.card h3{font-size:15px;margin:0 0 5px}.card p{font-size:12px;color:var(--muted);margin:0}.card .meta{margin-top:10px;font-size:11px;font-weight:800;color:#45514d}
     .food-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.food{background:#fff;border:1px solid var(--line);border-radius:15px;padding:15px}.food .daylabel{font-size:9px;font-weight:900;color:var(--green);letter-spacing:.1em}.food h3{font-size:14px;margin:5px 0}.food p{font-size:11px;color:var(--muted);margin:0}.food .status{display:inline-block;margin-top:10px;font-size:9px;font-weight:900;background:var(--warn);color:var(--warn-ink);padding:4px 7px;border-radius:999px}
     .gift{background:#202d29;color:#fff;border-radius:18px;padding:20px}.gift h3{font-size:20px;margin:0 0 10px}.gift-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.gift-grid div{border:1px solid rgba(255,255,255,.13);border-radius:12px;padding:12px}.gift-grid b{display:block;font-size:17px}.gift-grid span{font-size:10px;color:rgba(255,255,255,.62)}
@@ -64,16 +64,16 @@
       <div class="event"><div class="time">08:15</div><div><h3>森下 出発</h3><p>途中SA休憩を挟みながら猪苗代へ。</p></div></div>
       <div class="event"><div class="time">12:30</div><div><h3>河京ラーメン館 猪苗代店</h3><p>喜多方ラーメン＆ビュッフェ。10人予約候補。</p><span class="tag todo">予約確認</span></div></div>
       <div class="event"><div class="time">14:10</div><div><h3>猪苗代湖</h3><p>湖畔で少し休憩・集合写真。サウナ準備。</p></div></div>
-      <div class="event"><div class="time">15:00</div><div><h3>Roots猪苗代 湖畔サウナ</h3><p>パノラマサウナ＋バレルサウナを予約済み。手ぶらセット利用。</p><span class="tag booked">BOOKED</span></div></div>
+      <div class="event"><div class="time">15:00</div><div><h3>Roots猪苗代 湖畔サウナ</h3><p>パノラマサウナ＋バレルサウナを予約済み。手ぶらセット利用。</p><span class="tag booked">BOOKED</span><br><a class="btn" href="https://lakearea.roots.jp/sauna/" target="_blank" rel="noopener">公式サイト ↗</a></div></div>
       <div class="event"><div class="time">17:00</div><div><h3>BBQ買い出し</h3><p>肉・酒・野菜・朝食・氷など。</p></div></div>
-      <div class="event"><div class="time">18:00</div><div><h3>ログハウスへ</h3><p>チェックイン後、そのままBBQ＆飲み。</p><span class="tag booked">BOOKED</span></div></div>
+      <div class="event"><div class="time">18:00</div><div><h3>ログハウスへ</h3><p>チェックイン後、そのままBBQ＆飲み。</p><span class="tag booked">BOOKED</span><br><a class="btn" href="https://lakearea.roots.jp/ログハウス/" target="_blank" rel="noopener">公式サイト ↗</a></div></div>
     </div>
   </div>
   <div class="day">
     <div class="day-head"><b>DAY 2｜9/6（日）</b><span>桃狩り → ランチ → 那須 → 東京</span></div>
     <div class="timeline">
       <div class="event"><div class="time">10:00</div><div><h3>ログハウス チェックアウト</h3><p>朝食・片付け・荷造りを済ませて出発。</p><span class="tag fixed">FIX</span></div></div>
-      <div class="event"><div class="time">11:00</div><div><h3>まるせい果樹園 桃狩り</h3><p>11:00〜12:00の予約枠。</p><span class="tag booked">BOOKED</span></div></div>
+      <div class="event"><div class="time">11:00</div><div><h3>まるせい果樹園 桃狩り</h3><p>11:00〜12:00の予約枠。</p><span class="tag booked">BOOKED</span><br><a class="btn" href="https://www.maruseifukushima.com" target="_blank" rel="noopener">公式サイト ↗</a></div></div>
       <div class="event"><div class="time">12:15</div><div><h3>福島エリアでランチ</h3><p>10人で入りやすい店を候補から決定。</p><span class="tag todo">未確定</span></div></div>
       <div class="event"><div class="time">13:00</div><div><h3>那須へ出発</h3><p>東京方向へ南下。</p></div></div>
       <div class="event"><div class="time">14:30</div><div><h3>那須ガーデンアウトレット</h3><p>恒例のプレゼント交換イベント。</p></div></div>
@@ -106,9 +106,9 @@
 <section id="booked"><div class="wrap">
   <h2 class="section-title">予約済み</h2><p class="section-sub">確定情報だけをここに集約。</p>
   <div class="grid">
-    <div class="card"><h3>🔥 Roots猪苗代 湖畔サウナ</h3><p>9/5 15:00。パノラマサウナ＋バレルサウナを予約済み。手ぶらセット利用。</p><div class="meta">BOOKED｜15:00〜</div></div>
-    <div class="card"><h3>🏡 Roots オリジンログハウス</h3><p>9/5宿泊。最大12名・一棟貸切。Lake Areaから車約15分。</p><div class="meta">CHECK OUT｜9/6 10:00</div></div>
-    <div class="card"><h3>🍑 まるせい果樹園</h3><p>9/6 11:00集合。体験枠11:00〜12:00。</p><div class="meta">持ち物｜タオル・帽子・虫よけ</div></div>
+    <div class="card"><h3>🔥 Roots猪苗代 湖畔サウナ</h3><p>9/5 15:00。パノラマサウナ＋バレルサウナを予約済み。手ぶらセット利用。</p><div class="meta">BOOKED｜15:00〜</div><a class="btn" href="https://lakearea.roots.jp/sauna/" target="_blank" rel="noopener">公式サイト ↗</a></div>
+    <div class="card"><h3>🏡 Roots オリジンログハウス</h3><p>9/5宿泊。最大12名・一棟貸切。Lake Areaから車約15分。</p><div class="meta">CHECK OUT｜9/6 10:00</div><a class="btn" href="https://lakearea.roots.jp/ログハウス/" target="_blank" rel="noopener">公式サイト ↗</a></div>
+    <div class="card"><h3>🍑 まるせい果樹園</h3><p>9/6 11:00集合。体験枠11:00〜12:00。</p><div class="meta">持ち物｜タオル・帽子・虫よけ</div><a class="btn" href="https://www.maruseifukushima.com" target="_blank" rel="noopener">公式サイト ↗</a></div>
   </div>
 </div></section>
 
