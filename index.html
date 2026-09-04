@@ -30,15 +30,16 @@
     .tag{display:inline-block;border-radius:999px;padding:3px 7px;margin-top:7px;font-size:9px;font-weight:900;letter-spacing:.06em;background:#edf0ee;color:#53605b}.tag.booked{background:var(--peach);color:var(--peach-ink)}.tag.fixed{background:var(--green-soft);color:var(--green)}.tag.todo{background:var(--warn);color:var(--warn-ink)}
     .important{background:#fff;border:2px solid var(--green);border-radius:16px;padding:16px;margin-bottom:16px}.important .label{color:var(--green);font-size:10px;font-weight:900;letter-spacing:.12em}.important strong{display:block;font-size:22px;margin:4px 0}.important p{font-size:12px;color:var(--muted);margin:0}
     .maps{display:grid;grid-template-columns:1fr 1fr;gap:14px}.map-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}.map-card h3{font-size:16px;margin:0;padding:15px 16px 3px}.map-card .desc{padding:0 16px 12px;color:var(--muted);font-size:11px}.map{width:100%;height:330px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-    .map-note{padding:10px 14px;font-size:10px;color:var(--muted);background:#fafbfa}.map-links{display:flex;gap:8px;padding:12px 14px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;min-height:36px;padding:8px 11px;border:1px solid var(--line);border-radius:10px;font-size:11px;font-weight:800;background:#fff}.event .btn,.card .btn{margin-top:10px}
+    .map-note{padding:10px 14px;font-size:10px;color:var(--muted);background:#fafbfa}.map-links{display:flex;gap:8px;padding:12px 14px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;min-height:36px;padding:8px 11px;border:1px solid var(--line);border-radius:10px;font-size:11px;font-weight:800;background:#fff}.event .btn,.card .btn,.food .btn{margin-top:10px;margin-right:6px}
     .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow)}.card h3{font-size:15px;margin:0 0 5px}.card p{font-size:12px;color:var(--muted);margin:0}.card .meta{margin-top:10px;font-size:11px;font-weight:800;color:#45514d}
     .food-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.food{background:#fff;border:1px solid var(--line);border-radius:15px;padding:15px}.food .daylabel{font-size:9px;font-weight:900;color:var(--green);letter-spacing:.1em}.food h3{font-size:14px;margin:5px 0}.food p{font-size:11px;color:var(--muted);margin:0}.food .status{display:inline-block;margin-top:10px;font-size:9px;font-weight:900;background:var(--warn);color:var(--warn-ink);padding:4px 7px;border-radius:999px}
-    .gift{background:#202d29;color:#fff;border-radius:18px;padding:20px}.gift h3{font-size:20px;margin:0 0 10px}.gift-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.gift-grid div{border:1px solid rgba(255,255,255,.13);border-radius:12px;padding:12px}.gift-grid b{display:block;font-size:17px}.gift-grid span{font-size:10px;color:rgba(255,255,255,.62)}
+    .shopping-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.shop{background:#fff;border:1px solid var(--line);border-radius:15px;padding:15px;box-shadow:var(--shadow)}.shop h3{font-size:15px;margin:0 0 5px}.shop p{font-size:11px;color:var(--muted);margin:0}.shop .meta{margin-top:9px;font-size:10px;font-weight:800;color:#45514d}.shop .btn{margin-top:10px;margin-right:6px}
+    .gift{background:#202d29;color:#fff;border-radius:18px;padding:20px}.gift h3{font-size:20px;margin:0 0 10px}.gift-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.gift-grid div{border:1px solid rgba(255,255,255,.13);border-radius:12px;padding:12px}.gift-grid b{display:block;font-size:17px}.gift-grid span{font-size:10px;color:rgba(255,255,255,.62)}.gift .btn{margin-top:14px;color:#18221f}
     .checklist{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px}.check{padding:10px 0;border-bottom:1px solid var(--line);font-size:12px}.check:last-child{border:0}.check b{display:block;margin-bottom:2px}.check span{color:var(--muted)}
     footer{text-align:center;color:var(--muted);font-size:10px;padding:24px 0 50px}
     .leaflet-popup-content{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif;font-size:12px}.leaflet-control-attribution{font-size:8px!important}
     @media(max-width:720px){
-      .wrap{width:min(100% - 20px,680px)} header{padding:28px 0 26px}h1{font-size:26px}.maps,.grid,.food-grid{grid-template-columns:1fr}.map{height:300px}.event{grid-template-columns:58px 1fr;gap:10px}.timeline{padding:5px 14px}.day-head{padding:14px}.gift-grid{grid-template-columns:1fr 1fr}section{padding:28px 0}
+      .wrap{width:min(100% - 20px,680px)} header{padding:28px 0 26px}h1{font-size:26px}.maps,.grid,.food-grid,.shopping-grid{grid-template-columns:1fr}.map{height:300px}.event{grid-template-columns:58px 1fr;gap:10px}.timeline{padding:5px 14px}.day-head{padding:14px}.gift-grid{grid-template-columns:1fr 1fr}section{padding:28px 0}
     }
   </style>
 </head>
@@ -51,21 +52,20 @@
   </div>
 </header>
 <nav>
-  <a href="#schedule">旅程</a><a href="#maps">地図</a><a href="#booked">予約済み</a><a href="#food">ご飯候補</a><a href="#gift">プレゼント交換</a><a href="#todo">確認事項</a>
+  <a href="#schedule">旅程</a><a href="#maps">地図</a><a href="#booked">予約済み</a><a href="#food">ご飯候補</a><a href="#shopping">買い出し</a><a href="#gift">プレゼント交換</a><a href="#todo">確認事項</a>
 </nav>
 <main>
 <section id="schedule"><div class="wrap">
   <h2 class="section-title">旅程</h2><p class="section-sub">まず「何時に・どこへ」を最優先で読める形にしています。</p>
-  <div class="important"><div class="label">MEETING POINT</div><strong>9/5 08:00｜森下駅 A5出口</strong><p>10人全員ここで集合。荷物を積み次第、猪苗代へ向けて出発。</p></div>
+  <div class="important"><div class="label">MEETING POINT</div><strong>9/5 08:30｜森下駅 A5出口</strong><p>10人全員ここで集合。集合次第、そのまま猪苗代へ出発。</p></div>
   <div class="day">
     <div class="day-head"><b>DAY 1｜9/5（土）</b><span>東京 → 猪苗代湖 → サウナ → BBQ</span></div>
     <div class="timeline">
-      <div class="event"><div class="time">08:00</div><div><h3>森下駅 A5出口 集合</h3><p>10人集合・荷物積み込み。</p><span class="tag fixed">FIX</span></div></div>
-      <div class="event"><div class="time">08:15</div><div><h3>森下 出発</h3><p>途中SA休憩を挟みながら猪苗代へ。</p></div></div>
-      <div class="event"><div class="time">12:30</div><div><h3>河京ラーメン館 猪苗代店</h3><p>喜多方ラーメン＆ビュッフェ。10人予約候補。</p><span class="tag todo">予約確認</span></div></div>
+      <div class="event"><div class="time">08:30</div><div><h3>森下駅 A5出口 集合＆出発</h3><p>10人集合。荷物を積んだらそのまま猪苗代へ。</p><span class="tag fixed">FIX</span></div></div>
+      <div class="event"><div class="time">12:30</div><div><h3>河京ラーメン館 猪苗代店</h3><p>第一候補。喜多方ラーメン＆ビュッフェ。休日は予約できないため、混雑時は下の「ご飯候補」に切り替え。</p><span class="tag todo">休日予約不可</span><br><a class="btn" href="https://www.bandaisan.or.jp/eat/ramenkan/" target="_blank" rel="noopener">店舗情報 ↗</a><a class="btn" href="https://www.google.com/maps/search/?api=1&query=河京ラーメン館+猪苗代店" target="_blank" rel="noopener">Google Maps ↗</a></div></div>
       <div class="event"><div class="time">14:10</div><div><h3>猪苗代湖</h3><p>湖畔で少し休憩・集合写真。サウナ準備。</p></div></div>
       <div class="event"><div class="time">15:00</div><div><h3>Roots猪苗代 湖畔サウナ</h3><p>パノラマサウナ＋バレルサウナを予約済み。手ぶらセット利用。</p><span class="tag booked">BOOKED</span><br><a class="btn" href="https://lakearea.roots.jp/sauna/" target="_blank" rel="noopener">公式サイト ↗</a></div></div>
-      <div class="event"><div class="time">17:00</div><div><h3>BBQ買い出し</h3><p>肉・酒・野菜・朝食・氷など。</p></div></div>
+      <div class="event"><div class="time">17:00</div><div><h3>BBQ買い出し</h3><p>肉・酒・野菜・朝食・氷など。ヨークベニマルまたはリオン・ドールへ。</p><a class="btn" href="#shopping">買い出し候補を見る ↓</a></div></div>
       <div class="event"><div class="time">18:00</div><div><h3>ログハウスへ</h3><p>チェックイン後、そのままBBQ＆飲み。</p><span class="tag booked">BOOKED</span><br><a class="btn" href="https://lakearea.roots.jp/ログハウス/" target="_blank" rel="noopener">公式サイト ↗</a></div></div>
     </div>
   </div>
@@ -76,7 +76,7 @@
       <div class="event"><div class="time">11:00</div><div><h3>まるせい果樹園 桃狩り</h3><p>11:00〜12:00の予約枠。</p><span class="tag booked">BOOKED</span><br><a class="btn" href="https://www.maruseifukushima.com" target="_blank" rel="noopener">公式サイト ↗</a></div></div>
       <div class="event"><div class="time">12:15</div><div><h3>福島エリアでランチ</h3><p>10人で入りやすい店を候補から決定。</p><span class="tag todo">未確定</span></div></div>
       <div class="event"><div class="time">13:00</div><div><h3>那須へ出発</h3><p>東京方向へ南下。</p></div></div>
-      <div class="event"><div class="time">14:30</div><div><h3>那須ガーデンアウトレット</h3><p>恒例のプレゼント交換イベント。</p></div></div>
+      <div class="event"><div class="time">14:30</div><div><h3>那須ガーデンアウトレット</h3><p>恒例のプレゼント交換イベント。</p><a class="btn" href="https://www.google.com/maps/search/?api=1&query=那須ガーデンアウトレット" target="_blank" rel="noopener">Google Maps ↗</a></div></div>
       <div class="event"><div class="time">14:30</div><div><h3>プレゼント探し</h3><p>制限時間 1時間30分。</p><span class="tag fixed">90 MIN</span></div></div>
       <div class="event"><div class="time">16:00</div><div><h3>プレゼント交換</h3><p>開封・紹介込みで1時間。</p><span class="tag fixed">60 MIN</span></div></div>
       <div class="event"><div class="time">17:00</div><div><h3>那須 出発</h3><p>道路状況を見て、可能なら少し前倒し。</p></div></div>
@@ -98,7 +98,7 @@
       <h3>DAY 2｜福島 → 那須 → 東京</h3><div class="desc">桃狩り後は南下。那須でプレゼント交換して森下へ。</div>
       <div id="map2" class="map"></div>
       <div class="map-note">※広域なので縮尺は自動調整。線は実際の道路ルートではありません。</div>
-      <div class="map-links"><a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=まるせい果樹園">まるせいを開く</a><a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=那須ガーデンアウトレット">那須を開く</a></div>
+      <div class="map-links"><a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=まるせい果樹園">まるせいを開く</a><a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=那須ガーデンアウトレット">那須をGoogle Mapsで開く</a></div>
     </div>
   </div>
 </div></section>
@@ -113,23 +113,34 @@
 </div></section>
 
 <section id="food"><div class="wrap">
-  <h2 class="section-title">ご飯候補</h2><p class="section-sub">未確定の食事は旅程から切り離して管理。</p>
+  <h2 class="section-title">ご飯候補</h2><p class="section-sub">1日目は河京を第一候補にしつつ、休日の混雑に備えて近隣候補を用意。</p>
   <div class="food-grid">
-    <div class="food"><div class="daylabel">DAY 1 LUNCH</div><h3>河京ラーメン館 猪苗代店</h3><p>喜多方ラーメン＋30種類以上のサイドメニューが楽しめるビュッフェ。10人予約可。</p><span class="status">予約確認中</span></div>
+    <div class="food"><div class="daylabel">DAY 1｜FIRST CHOICE</div><h3>河京ラーメン館 猪苗代店</h3><p>喜多方ラーメン＋30種類以上のサイドメニューが楽しめるビュッフェ。休日は予約不可なので、到着後まず空席確認。</p><span class="status">第一候補・休日予約不可</span><br><a class="btn" href="https://www.bandaisan.or.jp/eat/ramenkan/" target="_blank" rel="noopener">店舗情報 ↗</a><a class="btn" href="https://www.google.com/maps/search/?api=1&query=河京ラーメン館+猪苗代店" target="_blank" rel="noopener">Google Maps ↗</a></div>
+    <div class="food"><div class="daylabel">DAY 1｜BACKUP</div><h3>猪苗代町そばの里センター いわはし館</h3><p>猪苗代産の手打ちそば。82席・駐車場105台で、大人数でも比較的動きやすい候補。11:00〜15:00。</p><span class="status">混雑時候補</span><br><a class="btn" href="https://www.inawashiro.or.jp/meal/iwahashi/" target="_blank" rel="noopener">公式 ↗</a><a class="btn" href="https://www.google.com/maps/search/?api=1&query=猪苗代町そばの里センター+いわはし館" target="_blank" rel="noopener">Google Maps ↗</a></div>
+    <div class="food"><div class="daylabel">DAY 1｜BACKUP</div><h3>喜多方ラーメン来夢 猪苗代店</h3><p>喜多方ラーメン系の代替候補。11:00〜21:00・年中無休なので、河京が厳しい時に切り替えやすい。</p><span class="status">混雑時候補</span><br><a class="btn" href="https://www.umai-kitakata.co.jp/shop/" target="_blank" rel="noopener">公式 ↗</a><a class="btn" href="https://www.google.com/maps/search/?api=1&query=喜多方ラーメン来夢+猪苗代店" target="_blank" rel="noopener">Google Maps ↗</a></div>
+    <div class="food"><div class="daylabel">DAY 1｜BACKUP</div><h3>まるいち食堂</h3><p>自家製手打ち麺のラーメンと、会津らしいソースカツ丼が人気。11:00〜17:30。</p><span class="status">混雑時候補</span><br><a class="btn" href="https://www.bandaisan.or.jp/eat/maruichishokudo/" target="_blank" rel="noopener">店舗情報 ↗</a><a class="btn" href="https://www.google.com/maps/search/?api=1&query=まるいち食堂+猪苗代" target="_blank" rel="noopener">Google Maps ↗</a></div>
     <div class="food"><div class="daylabel">DAY 2 LUNCH</div><h3>餃子酒家 照井</h3><p>福島名物の円盤餃子。桃狩り後の候補。</p><span class="status">候補</span></div>
     <div class="food"><div class="daylabel">DAY 2 LUNCH</div><h3>その他・福島飯坂周辺</h3><p>10人予約可・駐車場あり・那須へ南下しやすい店を優先。</p><span class="status">候補追加予定</span></div>
   </div>
 </div></section>
 
+<section id="shopping"><div class="wrap">
+  <h2 class="section-title">BBQ買い出し</h2><p class="section-sub">サウナ後に寄りやすい猪苗代町内のスーパー。肉・野菜・酒・氷・翌朝の朝食をまとめて調達。</p>
+  <div class="shopping-grid">
+    <div class="shop"><h3>🛒 ヨークベニマル 猪苗代店</h3><p>第一候補。営業時間9:00〜21:00。品揃えをまとめて済ませたい時に使いやすい大型スーパー。</p><div class="meta">福島県耶麻郡猪苗代町字梨木西92</div><a class="btn" href="https://yorkbenimaru.com/store/details/inawashiro/" target="_blank" rel="noopener">公式 ↗</a><a class="btn" href="https://www.google.com/maps/search/?api=1&query=ヨークベニマル+猪苗代店" target="_blank" rel="noopener">Google Maps ↗</a></div>
+    <div class="shop"><h3>🛒 リオン・ドール 猪苗代店</h3><p>予備候補。営業時間8:00〜21:00。ヨークベニマルが混んでいる時や、買い忘れの補完にも。</p><div class="meta">福島県耶麻郡猪苗代町芦原97</div><a class="btn" href="https://liondor.jp/store/" target="_blank" rel="noopener">公式 ↗</a><a class="btn" href="https://www.google.com/maps/search/?api=1&query=リオン・ドール+猪苗代店" target="_blank" rel="noopener">Google Maps ↗</a></div>
+  </div>
+</div></section>
+
 <section id="gift"><div class="wrap">
   <h2 class="section-title">プレゼント交換</h2><p class="section-sub">那須ガーデンアウトレットで行う恒例イベント。</p>
-  <div class="gift"><h3>🎁 Gift Exchange</h3><div class="gift-grid"><div><b>90分</b><span>プレゼント探し</span></div><div><b>60分</b><span>交換・開封</span></div><div><b>10人</b><span>全員参加</span></div></div></div>
+  <div class="gift"><h3>🎁 Gift Exchange</h3><div class="gift-grid"><div><b>90分</b><span>プレゼント探し</span></div><div><b>60分</b><span>交換・開封</span></div><div><b>10人</b><span>全員参加</span></div></div><a class="btn" href="https://www.google.com/maps/search/?api=1&query=那須ガーデンアウトレット" target="_blank" rel="noopener">那須ガーデンアウトレットをGoogle Mapsで開く ↗</a></div>
 </div></section>
 
 <section id="todo"><div class="wrap">
   <h2 class="section-title">確認事項</h2>
   <div class="checklist">
-    <div class="check"><b>河京ラーメン館</b><span>9/5・10名の予約を確認</span></div>
+    <div class="check"><b>1日目ランチ</b><span>河京は休日予約不可。到着時の混雑次第で、いわはし館・来夢・まるいち食堂へ切り替え。</span></div>
     <div class="check"><b>9/6 ランチ</b><span>10名予約・駐車場・桃狩りからの動線で決定</span></div>
     <div class="check"><b>レンタカー</b><span>9/6 20:00森下返却。帰路は当日の渋滞を見て前倒し判断。</span></div>
   </div>
